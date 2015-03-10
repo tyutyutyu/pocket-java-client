@@ -67,7 +67,7 @@ public class ArticlesListFromJsonExtractor {
 		final List<Article> articles = Lists.newArrayList();
 
 		for (final String articleString : articleStrings) {
-			log.debug("articleString = \n" + articleString);
+			log.trace("articleString: {}", articleString);
 			articles.add(gson.fromJson(articleString, Article.class));
 		}
 
