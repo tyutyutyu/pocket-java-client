@@ -8,7 +8,7 @@ import org.junit.Before;
 
 public class BasePocketIntegrationTest {
 
-	Pocket pocket = new Pocket(IntegrationTestsConfig.get().getApprovedConsumerKey(), IntegrationTestsConfig.get().getAccessToken());
+	Pocket pocket = new Pocket(IntegrationTestsConfig.get().getConsumerKey(), IntegrationTestsConfig.get().getAccessToken());
 
 	@Before
 	public void clear() {

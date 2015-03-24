@@ -4,7 +4,7 @@
 
 	<groupId>com.tyutyutyu</groupId>
 	<artifactId>pocket-java-client</artifactId>
-	<version>0.2-SNAPSHOT</version>
+	<version>0.2.0</version>
 
 	<name>Pocket Java Client</name>
 	<description>Java client exposing API to interact with Pocket (former Read It Later)</description>
@@ -18,8 +18,21 @@
 		<maven>3.2.5</maven>
 	</prerequisites>
 
-	<dependencies>
+	<scm>
+		<connection>scm:git:https://github.com/tyutyutyu/pocket-java-client.git</connection>
+		<developerConnection>scm:git:git@github.com:tyutyutyu/pocket-java-client.git</developerConnection>
+		<url>https://github.com/tyutyutyu/pocket-java-client</url>
+		<tag>HEAD</tag>
+	</scm>
 
+	<distributionManagement>
+		<repository>
+			<id>bintray</id>
+			<url>https://api.bintray.com/maven/tyutyutyu/pocket-java-client/package</url>
+		</repository>
+	</distributionManagement>
+
+	<dependencies>
 		<dependency>
 			<groupId>com.google.guava</groupId>
 			<artifactId>guava</artifactId>
@@ -78,6 +91,12 @@
 			<version>1.10.19</version>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-classic</artifactId>
+			<version>1.1.2</version>
+			<scope>test</scope>
+		</dependency>
 	</dependencies>
 
 	<build>
@@ -118,7 +137,49 @@
 					</execution>
 				</executions>
 			</plugin>
+
+			<plugin>
+				<artifactId>maven-release-plugin</artifactId>
+				<version>2.4.1</version>
+				<configuration>
+					<useReleaseProfile>false</useReleaseProfile>
+					<releaseProfiles>release</releaseProfiles>
+					<autoVersionSubmodules>true</autoVersionSubmodules>
+				</configuration>
+			</plugin>
 		</plugins>
 	</build>
+
+	<profiles>
+		<profile>
+			<id>release</id>
+			<build>
+				<plugins>
+					<plugin>
+						<artifactId>maven-source-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>attach-sources</id>
+								<goals>
+									<goal>jar</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+					<plugin>
+						<artifactId>maven-javadoc-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>attach-javadocs</id>
+								<goals>
+									<goal>jar</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
 
 </project>

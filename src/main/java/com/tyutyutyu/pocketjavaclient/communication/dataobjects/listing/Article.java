@@ -2,6 +2,11 @@ package com.tyutyutyu.pocketjavaclient.communication.dataobjects.listing;
 
 import com.tyutyutyu.pocketjavaclient.communication.dataobjects.AbstractArticle;
 
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+
+@Data
+@EqualsAndHashCode(callSuper = true)
 public class Article extends AbstractArticle {
 
 	private String givenUrl;
@@ -14,53 +19,4 @@ public class Article extends AbstractArticle {
 
 	private Integer status;
 
-	public String getGivenUrl() {
-
-		return givenUrl;
-	}
-
-	public void setGivenUrl(String givenUrl) {
-
-		this.givenUrl = givenUrl;
-	}
-
-	public String getGivenTitle() {
-
-		return givenTitle;
-	}
-
-	public void setGivenTitle(String givenTitle) {
-
-		this.givenTitle = givenTitle;
-	}
-
-	public String getResolvedTitle() {
-
-		return resolvedTitle;
-	}
-
-	public void setResolvedTitle(String resolvedTitle) {
-
-		this.resolvedTitle = resolvedTitle;
-	}
-
-	public Boolean getFavorite() {
-
-		return favorite;
-	}
-
-	public void setFavorite(Boolean favorite) {
-
-		this.favorite = favorite;
-	}
-
-	public Integer getStatus() {
-
-		return status;
-	}
-
-	public void setStatus(Integer status) {
-
-		this.status = status;
-	}
 }

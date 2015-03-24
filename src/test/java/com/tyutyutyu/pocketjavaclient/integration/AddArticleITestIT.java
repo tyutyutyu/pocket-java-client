@@ -8,6 +8,7 @@ import com.tyutyutyu.pocketjavaclient.communication.dataobjects.add.AddArticleRe
 import com.tyutyutyu.pocketjavaclient.communication.dataobjects.listing.Article;
 import com.tyutyutyu.pocketjavaclient.communication.dataobjects.listing.ListArticlesResponse;
 
+import org.junit.Ignore;
 import org.junit.Test;
 
 public class AddArticleITestIT extends BasePocketIntegrationTest {
@@ -20,13 +21,15 @@ public class AddArticleITestIT extends BasePocketIntegrationTest {
 
 		// Then
 		assertThat(response.getStatus().isOk()).isTrue();
-		final ListArticlesResponse listArticlesResponse = pocket.listArticles().allUnread();
 
+		final ListArticlesResponse listArticlesResponse = pocket.listArticles().allUnread();
 		assertThat(listArticlesResponse.getList()).hasSize(1);
+
 		final Article article = listArticlesResponse.getList().get(0);
 		assertThat(article.getResolvedUrl()).isEqualTo(ANGULARJS_STARTER);
 	}
 
+	@Ignore
 	@Test
 	public void shouldAddArticleWithTitle() {
 

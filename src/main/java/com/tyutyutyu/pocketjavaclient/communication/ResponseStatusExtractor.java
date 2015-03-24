@@ -9,6 +9,7 @@ public class ResponseStatusExtractor {
 		final boolean hasErrorCode = headers.hasHeaderWithName("X-Error-Code");
 
 		// TODO
+		// http://getpocket.com/developer/docs/errors
 		// X-Limit-User-Limit: Current rate final limit enforced per user
 		// X-Limit-User-Remaining: Number of final calls remaining before hitting user's rate limit
 		// X-Limit-User-Reset: Seconds until user's rate limit resets
